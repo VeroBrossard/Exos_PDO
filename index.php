@@ -1,7 +1,11 @@
 <?php
+require_once("views/header.php");
+require_once("controllers/array_des_exos.php");
+
 
 ?>
-<!DOCTYPE html>
+<!-- dans header.php
+  <!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -14,28 +18,40 @@
 
 <body>
   <div id="header"><span id="title1"> Colyseum </span>
-  </div>
+  </div> -->
 
   <section>
-  <?php 
+  <br><br>
+    <div>
+    <b>Partie1 : </b>Lire les données colyseum.sql<br>
+Exécuter le script colyseum.sql fourni avant de commencer.<br> 
+Tous les résultats devront être affichés dans une page index.php.<br><br>
+<?php
 
-
-  // affichage des attributs de $compte1 avec leurs valeurs
-  //$Compte1->test();
+foreach($ListeExos as $clef => $valeur){
   ?>
-    <h1></h1>
-    <div>
-
-      <BR>
+  <a href="views/<?= $clef ?>.php" target="blank_"> <b><?= $clef?></b></a>
+  <?php
+    if ($clef == "Exo3") {
+      ?>
+      <a href="views/form.php" target="blank_"> <b><?= $clef?> avec Form.</b></a>
+      <?php
+    }
+  ?>
+  <br>
+  <?= $valeur ?> <br><br>
+  <?php
+}
+?>
     </div>
 
-    <div>
-
-    </div>
-    <br><br>
-    Bonne journée à vous ...
     <br><br>
   </section>
-</body>
+<!-- dans footer.php
+  </body> -->
 
-</html>
+  <?php
+require_once("views/footer_index.php") ;
+// $reponse->closeCursor(); // Termine le traitement de la requête
+?>
+
